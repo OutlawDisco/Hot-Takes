@@ -1,2 +1,2 @@
 # Hot-Takes
-movies reviews the honest way
+movie reviews the honest way
