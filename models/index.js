@@ -11,4 +11,6 @@ Movie.belongsTo(Reviews, {
   foreignKey: 'reviews_id',
 });
 
+
+
 module.exports = { User, Movie, Reviews};
