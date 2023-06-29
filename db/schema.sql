@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS hottakes_db;
+
+CREATE DATABASE hottakes_db;
