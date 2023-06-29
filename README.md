@@ -32,5 +32,7 @@
   Licensed under the [MIT](https://opensource.org/licenses/MIT) license
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
+  ## wireframe of main page
+  ![wireframe](./public/images/htwireframe.png)
   ## Database diagram of project DB 
   ![DB diagram](./public/images/ERD.jpg)
