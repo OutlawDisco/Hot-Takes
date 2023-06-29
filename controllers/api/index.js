@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const apiRoutes = require("./api");
 
-router.use("/api", apiRoutes);
+//  will eventually store paths to user routes -- movie routes and all that jazz
+
 
 module.exports = router;
