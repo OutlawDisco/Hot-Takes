@@ -36,3 +36,7 @@
   ![wireframe](./public/images/htwireframe.png)
   ## Database diagram of project DB 
   ![DB diagram](./public/images/ERD.jpg)
+
+  ### link to deployed application: https://hot-takes-reviews-b29812e3e846.herokuapp.com/
+
+  ### GitHub repository: https://github.com/OutlawDisco/Hot-Takes
