@@ -3,33 +3,47 @@ const sequelize = require("../config/connection");
 
 class Review extends Model {}
 
-Review.init({
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  rating: {
+Review.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    rating: {
       type: DataTypes.INTEGER,
       validate: {
-          min: 0,
-          max: 10
-      }
-  },
-  take: {
+        min: 0,
+        max: 10,
+      },
+    },
+    take: {
       type: DataTypes.TEXT,
       allowNull: false,
-
-  }
-},
-{
+    },
+    movie_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "movie",
+        key: "id",
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
+  },
+  {
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Review'
-}
+    modelName: "Review",
+  }
 );
 
-module.exports = Review
+module.exports = Review;
