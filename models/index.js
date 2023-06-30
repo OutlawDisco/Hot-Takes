@@ -12,3 +12,4 @@ Movie.belongsTo(Review, {
 });
 
 module.exports = { User, Movie, Review};
+
