@@ -9,7 +9,21 @@ router.post('/', async (req, res) => {
         // console.log(response);
         // console.log('-------------');
 
-        res.status(200).json(response.data);
+//check against database with imdbID, if exists get all reviews
+
+const data = {
+    poster: response.data.Poster,
+    title: response.data.Title,
+    plot: response.data.Plot,
+    year: response.data.Year,
+    imdbID: response.data.imdbID
+}
+for (const rating of response.data.Ratings) {
+    data[rating.Source.split(" ")[0]] = rating
+    
+}
+        // res.status(200).json(response.data);
+        res.render("moviepage", data);
     } catch (error) {
         console.log(error);
         res.status(500).json(error);

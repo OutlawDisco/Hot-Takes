@@ -1,5 +1,5 @@
 const User = require("./User");
-const Movie = require("./Movie");
+const Movie = require("./Movies");
 const Review = require("./Review");
 
 Movie.hasMany(Review, {
@@ -9,6 +9,11 @@ Movie.hasMany(Review, {
 
 Review.belongsTo(Movie, {
   foreignKey: "movie_id",
+});
+
+User.hasMany(Review, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
 });
 
 Review.belongsTo(User, {

@@ -11,14 +11,18 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    imdbID: {
       type: DataTypes.STRING,
       allownull: false,
-    },
-    plot: {
-      type: DataTypes.TEXT,
-      allownull: false,
-    },
+    }
+    // title: {
+    //   type: DataTypes.STRING,
+    //   allownull: false,
+    // },
+    // plot: {
+    //   type: DataTypes.TEXT,
+    //   allownull: false,
+    // },
   },
   {
     sequelize,
