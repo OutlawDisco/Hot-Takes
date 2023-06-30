@@ -12,3 +12,5 @@ const movieData = [
 ];
 
 const seedMovies = () => Movie.bulkCreate(movieData);
+
+module.exports = seedMovies;
