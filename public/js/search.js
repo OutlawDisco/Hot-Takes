@@ -3,7 +3,7 @@ const searchFormHandler = async (event) => {
 
   const movieQuery = document.querySelector('input[name="movie-search]').value;
 
-  const response = await fetch(`http://www.omdbapi.com/?t=${movieQuery}&apikey=b1ba91dd`)
+  // const response = await fetch(`http://www.omdbapi.com/?t=${movieQuery}&apikey=b1ba91dd`)
 
 console.log(response);
 
