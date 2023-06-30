@@ -15,7 +15,7 @@ Movie.init(
       type: DataTypes.STRING,
       allownull: false,
     },
-    description: {
+    plot: {
       type: DataTypes.TEXT,
       allownull: false,
     },
