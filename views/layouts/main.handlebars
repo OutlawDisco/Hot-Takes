@@ -14,9 +14,14 @@
 </head>
 {{!-- need to check the path for the favicons and css --}}
 <body> 
-  <nav class="navbar">
-    <ul></ul> 
-  </nav>
+  <header>
+    <form id="movie-search", class="">
+      <label class="search-label" for="movie-search">Search Movie</label>
+      <input type="text" name="movie-search" class="" />
+
+      <button type="submit" class="btn">Search</button>
+    </form>
+  </header>
 
   <main>
    {{{body}}} 
