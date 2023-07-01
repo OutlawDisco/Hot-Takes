@@ -1,5 +1,11 @@
+.nav-links {
+  
+}
+
+
+
 /* This is just a starting point from module 20 */
-:root {
+/* :root {
   --primary: #3d5852;
   --secondary: #86938f;
   --tertiary: #5e877f;
@@ -107,7 +113,7 @@ img {
 }
 
 /* CARDS */
-.card {
+/* .card {
   margin: 20px;
   flex: 0 1 300px;
   border: 7px double var(--dark);
@@ -157,9 +163,9 @@ img {
 }
 
 /* LAYOUT */
-.container {
+/* .container {
   display: flex;
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
-}
+} */ 
