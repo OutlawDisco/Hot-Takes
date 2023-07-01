@@ -30,12 +30,20 @@
   {{! need to check the path for the favicons and css }}
   <body>
     <header>
-    <form id="movie-search" class="" action="/api/movie" method="post">
-      <label class="search-label" for="movie-search">Search Movie</label>
-      <input type="text" name="title" class="" />
-
-      <button type="submit" class="btn">Search</button>
-    </form>
+      <h1>Hot-Takes Movie Reviews</h1>
+      <nav class="row">
+        <div class="col-md-4 search">
+          <form id="movie-search" class="" action="/api/movie" method="post">
+            <label class="search-label" for="movie-search">Search a Movie</label>
+            <input type="text" name="title" class="" />
+            <button type="submit" class="btn">Search</button>
+          </form>
+        </div>
+        <div class="col-md-8 nav-bar nav-links">
+          <button type="button" class="btn btn-outline-primary">Sign-up</button>
+          <button type="button" class="btn btn-outline-primary">Login</button>
+        </div>
+    </nav>
   </header>
 
     {{{body}}}
