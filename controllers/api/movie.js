@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
     // }
     // console.log(dbreviews)
     // res.render("moviepage", reviews);
-    const reviews = dbreviews.get({ plain: true});
+    // const reviews = dbreviews.get({ plain: true});
 
     const data = {
       poster: response.data.Poster,
@@ -48,9 +48,30 @@ router.post("/", async (req, res) => {
   }
 });
 
-
 // try getting the reviews that go with a movie inside a get call with same endpoint
-
+// router.get("/", async (req, res) => {
+//   try {
+//     let movieExists = await Movie.findOne({
+//       where: {
+//         imdbID: response.data.imdbID,
+//       },
+//     });
+//     console.log(movieExists);
+//     let dbreviews;
+//     if (movieExists) {
+//       dbreviews = await Review.findAll({
+//         where: {
+//           movie_id: movieExists.id,
+//         },
+//       });
+//     }
+//     console.log(dbreviews);
+//     res.render("moviepage", dbreviews);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json(error);
+//   }
+// });
 // let movieExists = await Movie.findOne({
 //   where: {
 //       imdbID: response.data.imdbID,
@@ -65,7 +86,5 @@ router.post("/", async (req, res) => {
 //   })
 // }
 // console.log(dbreviews)
-
-
 
 module.exports = router;
