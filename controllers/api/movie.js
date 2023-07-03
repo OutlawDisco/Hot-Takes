@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const axios = require("axios");
-const { Review, Movie } = require("../../models");
 
 // /api/movie
 router.post("/", async (req, res) => {
@@ -41,7 +40,7 @@ router.post("/", async (req, res) => {
       data[rating.Source.split(" ")[0]] = rating;
     }
     // res.status(200).json(response.data);
-    res.render("moviepage", data);
+    res.render("moviepage", { ...data, loggedIn: req.session.loggedIn });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
