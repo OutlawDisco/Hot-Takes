@@ -44,7 +44,7 @@ router.get("/", async (req, res) => {
       };
       
       // console.log(noReview);
-    console.log("if movie exists", dbreviews[0].user)
+    // console.log("if movie exists", dbreviews[0].user)
     res.locals.prevReviews = dbreviews;
     // const reviews = dbreviews.get({ plain: true});
 
