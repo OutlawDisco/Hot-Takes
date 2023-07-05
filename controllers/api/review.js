@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Review, Movie, User } = require('../../models/');
+const ReviewVote = require('../../models/ReviewVote');
 const withAuth = require('../../utils/auth');
 
 //  /api/review
@@ -40,6 +41,36 @@ router.post('/', withAuth, async (req, res) => {
         res.status(500).json(error);
     }
 })
+
+
+router.post('/vote', withAuth, async (req, res) => {
+    try {
+        const currentReview = await Review.findOne({
+            where: {
+                id: req.body.reviewId,
+            },
+            include: [
+                {
+                    model: Movie,
+                    attributes: [
+                        "imdbID"
+                    ]
+                }
+            ]
+        })
+        await ReviewVote.create({
+            user_id: req.session.userId,
+            review_id: req.body.reviewId,
+            upVote: req.body.vote
+        })
+console.log(currentReview);
+        res.redirect(`/api/movie?imdbID=${currentReview.Movie.imdbID}`);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+})
+
 
 
 
