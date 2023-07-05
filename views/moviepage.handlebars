@@ -48,4 +48,9 @@
       </form>
     {{/if}}
   </div>
+  <section class="row prev-reviews">
+    {{#each prevReviews as |review|}}
+    {{> review-details}}
+    {{/each}}
+  </section>
 </div>
