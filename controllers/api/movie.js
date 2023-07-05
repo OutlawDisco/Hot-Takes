@@ -1,13 +1,20 @@
 const router = require("express").Router();
 const axios = require("axios");
-const { Movie, Review } = require('../../models/')
+const { Movie, Review, User } = require('../../models/')
 
 // /api/movie
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const response = await axios.get(
-      `http://www.omdbapi.com/?t=${req.body.title}&apikey=${process.env.MOVIE_API}`
+    let response;
+    if(req.query.title){
+     response = await axios.get(
+      `http://www.omdbapi.com/?t=${req.query.title}&apikey=${process.env.MOVIE_API}`
     );
+    } else if(req.query.imdbID){
+      response = await axios.get(
+        `http://www.omdbapi.com/?i=${req.query.imdbID}&apikey=${process.env.MOVIE_API}`
+      );
+    }
     // console.log('-------------');
     // console.log(response);
     // console.log('-------------');
@@ -19,14 +26,25 @@ router.post("/", async (req, res) => {
         }
     })
     let dbreviews;
+    let noReview = true;
     if (movieExists) {
         dbreviews = await Review.findAll({
             where: {
                 movie_id: movieExists.id,
-            },
+            }, 
+            include: [
+              {
+                model: User,
+                attributes: ['username'],
+              }
+            ]
         })
-    }
-    console.log("if movie exists", dbreviews)
+        const userReview = dbreviews.find(obj => obj.user_id == req.session.userId); 
+        noReview = userReview ? false : true;
+      };
+      
+      // console.log(noReview);
+    console.log("if movie exists", dbreviews[0].user)
     res.locals.prevReviews = dbreviews;
     // const reviews = dbreviews.get({ plain: true});
 
@@ -36,6 +54,7 @@ router.post("/", async (req, res) => {
       plot: response.data.Plot,
       year: response.data.Year,
       imdbID: response.data.imdbID,
+      noReview
     };
     for (const rating of response.data.Ratings) {
       data[rating.Source.split(" ")[0]] = rating;
