@@ -14,6 +14,7 @@
   </div>
   <div class="col-md-8 ms-3 form-floating">
     {{#if loggedIn}}
+    {{#if noReview}}
       <form class="" action="/api/review" method="post">
         {{! <label class="search-label" for="review">HOT RATE</label> }}
         {{! <input type="number" id="rating" name="rating" min="1" max="10"/> }}
@@ -46,6 +47,7 @@
 
         <button type="submit" class="btn">SEND IT</button>
       </form>
+      {{/if}}
     {{/if}}
   </div>
   <section class="row prev-reviews">
