@@ -64,8 +64,62 @@
           {{#if loggedIn}}
             <button id="logout" class="btn btn-outline-primary">Logout</button>
           {{else}}
-            <a href="/signup" class="btn btn-outline-primary">Sign-up</a>
-            <a href="/login" class="btn btn-outline-primary">Login</a>
+            {{!-- <a href="/signup" class="btn btn-outline-primary">Sign-up</a> --}}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signUpModal">Signup</button>
+              <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Signup</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="signUpForm">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="signUpInputEmail" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Username</label>
+    <input type="password" class="form-control" id="username">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="signUpInputPassword">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>   
+            {{!-- <a href="/login" class="btn btn-outline-primary">Login</a> --}}
+            <button href="/login" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                          <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="loginInputEmail" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="loginInputPassword">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
           {{/if}}
         </div>
       </nav>
@@ -77,9 +131,10 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-    {{#if loggedIn}}
-      <script src="./js/logout.js"></script>
-    {{/if}}
+      <script src="/js/login.js"></script>
+      <script src="/js/logout.js"></script>
+      <script src="/js/signup.js"></script>
+ 
   </body>
 
 </html>
