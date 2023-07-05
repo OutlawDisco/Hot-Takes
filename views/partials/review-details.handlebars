@@ -1,7 +1,12 @@
 <div class="col-md-8 card">
-  <h5 class="card-header">{{dataValues.user.dataValues.username}}</h5>
+  <div class="row card-header">
+    <h5 class="col-md-2 rating">Hot Rate: {{dataValues.rating}}</h5>
+    <a href="#" class="col-md-2 offset-md-1 btn btn-outline-danger">Heat Up</a>
+    <a href="#" class="col-md-2 offset-md-1 btn btn-outline-primary">Cool Down</a>
+    <h5 class="col-md-2 offset-md-2 username">{{dataValues.user.dataValues.username}}</h5>
+  </div>
   <div class="card-body">
     <p class="card-text">{{dataValues.take}}</p>
-    <a href="#" class="btn btn-primary">Rate Take</a>
+    
   </div>
 </div>
