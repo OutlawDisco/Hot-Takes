@@ -63,13 +63,33 @@ router.post('/vote', withAuth, async (req, res) => {
             review_id: req.body.reviewId,
             upVote: req.body.vote
         })
-console.log(currentReview);
+// console.log(currentReview);
         res.redirect(`/api/movie?imdbID=${currentReview.Movie.imdbID}`);
     } catch (error) {
         console.log(error);
         res.status(500).json(error);
     }
 })
+
+// router.get('/vote', withAuth, async (req, res) => {
+//     try {
+//         const reviewVotes = await ReviewVote.findAll({
+//             where: {
+//                 review_id: req.body.reviewId,
+//             },
+//             attributes: {
+//                 include: [
+//                     [sequelize.fn('COUNT', sequelize.col('up_vote')), 'heat_up']
+//                 ]
+//             }
+//         })
+//         console.log('---------------------------');
+//         console.log(reviewVotes);
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json(error)
+//     }
+// })
 
 
 

@@ -12,33 +12,23 @@
     />
     {{! <link rel="stylesheet" type="text/css" href="./public/css/jass.css" /> }}
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/favicon-16x16.png"
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     {{! <link rel="manifest" href="/site.webmanifest" /> }}
+
   </head>
 
-  {{! need to check the path for the favicons and css }}
   <body>
-    <header class="ms-3 row">
-      <h1>Hot-Takes Movie Reviews</h1>
+    <header class="ms-3">
+      <h1 id="main-head">Hot-Takes Movie Reviews</h1>
       <p>A movie website for the hot takes of real movie goers, not reviewers!
       </p>
       <nav class="row">
@@ -51,13 +41,13 @@
               <input
                 type="text"
                 name="title"
-                class="form-control"
+                class="form-control movie-search-bar"
                 placeholder="Search a Movie"
                 aria-label="Search a Movie"
                 aria-describedby="button-addon2"
               />
               <button
-                class="btn btn-outline-secondary"
+                class="btn take-me-btn btn-outline-warning"
                 type="submit"
                 id="button-addon2"
               >Take me</button>
@@ -66,7 +56,7 @@
         </div>
         <div class="col-md-4 offset-md-4 nav-bar nav-links">
           {{#if loggedIn}}
-            <button id="logout" class="btn btn-outline-primary">Logout</button>
+            <button id="logout" class="btn btn-outline-danger">Logout</button>
           {{else}}
             {{! <a href="/signup" class="btn btn-outline-primary">Sign-up</a> }}
             <button
