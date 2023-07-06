@@ -43,7 +43,7 @@ ul {
   font-weight: bolder;
 }
 .form-control {
-  background-color: #fff3b0;
+  background-color: var(--lightest);
 }
 .movie-info {
   color: var(--lightest);
