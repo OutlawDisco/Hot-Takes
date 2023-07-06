@@ -15,9 +15,7 @@ router.get("/", async (req, res) => {
         `http://www.omdbapi.com/?i=${req.query.imdbID}&apikey=${process.env.MOVIE_API}`
       );
     }
-    // console.log('-------------');
-    // console.log(response);
-    // console.log('-------------');
+    
 
     //check against database with imdbID, if exists get all reviews
     let movieExists = await Movie.findOne({
@@ -67,43 +65,5 @@ router.get("/", async (req, res) => {
   }
 });
 
-// try getting the reviews that go with a movie inside a get call with same endpoint
-// router.get("/", async (req, res) => {
-//   try {
-//     let movieExists = await Movie.findOne({
-//       where: {
-//         imdbID: response.data.imdbID,
-//       },
-//     });
-//     console.log(movieExists);
-//     let dbreviews;
-//     if (movieExists) {
-//       dbreviews = await Review.findAll({
-//         where: {
-//           movie_id: movieExists.id,
-//         },
-//       });
-//     }
-//     console.log(dbreviews);
-//     res.render("moviepage", dbreviews);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json(error);
-//   }
-// });
-// let movieExists = await Movie.findOne({
-//   where: {
-//       imdbID: response.data.imdbID,
-//   }
-// })
-// let dbreviews;
-// if (movieExists) {
-//   dbreviews = await Review.findAll({
-//       where: {
-//           movie_id: movieExists.id,
-//       },
-//   })
-// }
-// console.log(dbreviews)
 
 module.exports = router;
