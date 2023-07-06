@@ -30,12 +30,18 @@
       href="images/favicon-16x16.png"
     />
     {{! <link rel="manifest" href="/site.webmanifest" /> }}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   {{! need to check the path for the favicons and css }}
   <body>
     <header class="ms-3">
-      <h1>Hot-Takes Movie Reviews</h1>
+      <h1 id="main-head">Hot-Takes Movie Reviews</h1>
       <p>A movie website for the hot takes of real movie goers, not reviewers!
       </p>
       <nav class="row">
@@ -48,13 +54,13 @@
               <input
                 type="text"
                 name="title"
-                class="form-control"
+                class="form-control movie-search-bar"
                 placeholder="Search a Movie"
                 aria-label="Search a Movie"
                 aria-describedby="button-addon2"
               />
               <button
-                class="btn btn-outline-secondary"
+                class="btn take-me-btn btn-outline-warning"
                 type="submit"
                 id="button-addon2"
               >Take me</button>
@@ -63,7 +69,7 @@
         </div>
         <div class="col-md-4 offset-md-4 nav-bar nav-links">
           {{#if loggedIn}}
-            <button id="logout" class="btn btn-outline-primary">Logout</button>
+            <button id="logout" class="btn btn-outline-danger">Logout</button>
           {{else}}
             {{! <a href="/signup" class="btn btn-outline-primary">Sign-up</a> }}
             <button
