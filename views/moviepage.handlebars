@@ -3,23 +3,22 @@
     <h1 id="title">{{title}}</h1>
     <img src="{{poster}}" alt="{{title}}" />
   </div>
-  <div class="col-md-5 align-self-center">
-    <ul class="movie-info">
-      <span class="movie-info">
-        <li>Plot: {{plot}}</li>
-        <li>Released: {{year}}</li>
-      </span>
+  <div class="col-md-5 align-self-center movie-info">
+    <ul>
+        <li><b>Released:</b> {{year}}</li>
+        <li><b>Plot:</b> {{plot}}</li>
     </ul>
     <ul class="row justify-content-start movie-ratings">
-      <li class="col">IMDB: {{Internet.Value}}</li>
-      <li class="col">{{Rotten.Source}}: {{Rotten.Value}}</li>
-      <li class="col">{{Metacritic.Source}}: {{Metacritic.Value}}</li>
+      <li class="col ext-rating">IMDB: {{Internet.Value}}</li>
+      <li class="col ext-rating">{{Rotten.Source}}: {{Rotten.Value}}</li>
+      <li class="col ext-rating">{{Metacritic.Source}}: {{Metacritic.Value}}</li>
     </ul>
   </div>
   <div class="col-md-8 ms-3 form-floating">
     {{#if loggedIn}}
     {{#if noReview}}
-      <form class="" action="/api/review" method="post">
+      <form class="" name="review" action="/api/review" method="post">
+        
         <label for="customRange3" class="search-label" for="review">Hot Rate</label>
         <input
           type="range"
@@ -32,7 +31,7 @@
           id="customRange3"
         />
         <textarea
-          class="form-control"
+          class="form-control review-input"
           name="take"
           id="review"
           placeholder="Add a Hot Take"
@@ -46,6 +45,8 @@
       </form>
       {{/if}}
     {{/if}}
+    
+
   </div>
   <div>
     <br>
