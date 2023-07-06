@@ -48,19 +48,23 @@ ul {
 .movie-info {
   color: var(--lightest);
 }
+
 /* Leave a review styling */
-
-
 .review-input {
   background-color: var(--lightest);
 }
 
 /* Previous review styling */
+.card-header{
+  border-bottom-width: medium;
+}
+
 .review-card {
   background-color: var(--dark);
   box-shadow: 10px 5px 5px var(--light);
   border: var(--darkest);
   border-style: solid;
+  border-width: medium;
 }
 
 .vote-count {
@@ -125,6 +129,10 @@ ul {
 .carousel__face:nth-child(9) {
   transform: rotateY(320deg) translateZ(430px);
 }
+
+/* .carousel-img {
+  height: 400px;
+} */
 
 @keyframes rotate360 {
   from {
