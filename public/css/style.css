@@ -22,6 +22,11 @@ body {
   font: var(--lightest);
 }
 
+.signup-btn {
+  background-color: var(--accent);
+  font: var(--light);
+}
+
 #logout {
   background-color: var(--accent);
   font: var(--light);
@@ -33,7 +38,7 @@ ul {
 
 /* Movie Page Styling */
 #title {
-  font: var(--lightest);
+  color: var(--lightest);
   font-size: 40px;
   font-weight: bolder;
 }
@@ -41,7 +46,29 @@ ul {
   background-color: #fff3b0;
 }
 .movie-info {
-  font: var(--lightest);
+  color: var(--lightest);
+}
+/* Leave a review styling */
+
+
+.review-input {
+  background-color: var(--lightest);
+}
+
+/* Previous review styling */
+.review-card {
+  background-color: var(--dark);
+  box-shadow: 10px 5px 5px var(--light);
+  border: var(--darkest);
+  border-style: solid;
+}
+
+.vote-count {
+  text-align: center;
+}
+
+.card-text {
+  color: var(--lightest);
 }
 
 /* Carosel styling */
@@ -72,7 +99,6 @@ ul {
 }
 
 .carousel__face:nth-child(1) {
-  height: 70%;
   transform: rotateY(0deg) translateZ(430px);
 }
 .carousel__face:nth-child(2) {

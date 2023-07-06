@@ -48,14 +48,14 @@
             </div>
           </form>
         </div>
-        <div class="col-md-4 offset-md-4 nav-bar nav-links">
+        <div class="col-md-2 offset-md-6 nav-bar nav-links">
           {{#if loggedIn}}
             <button id="logout" class="btn btn-outline-danger">Logout</button>
           {{else}}
             {{! <a href="/signup" class="btn btn-outline-primary">Sign-up</a> }}
             <button
               type="button"
-              class="btn btn-primary"
+              class="signup-btn btn btn-outline-danger"
               data-bs-toggle="modal"
               data-bs-target="#signUpModal"
             >Signup</button>

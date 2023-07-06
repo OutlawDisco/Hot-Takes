@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const { Review, Movie, User } = require("../../models/");
-const ReviewVote = require("../../models/ReviewVote");
-const withAuth = require("../../utils/auth");
+const router = require('express').Router();
+const { Review, Movie, User, ReviewVote } = require('../../models/');
+// const ReviewVote = require('../../models/ReviewVote');
+const withAuth = require('../../utils/auth');
 
 //  /api/review
 router.post("/", withAuth, async (req, res) => {
