@@ -1,12 +1,12 @@
-<div class="col-md-8 mb-2 card">
+<div class="col-md-8 mb-4 card review-card">
   <div class="row card-header">
-    <h5 class="col-md-2 rating">Hot Rate: {{dataValues.rating}}</h5>
-    <button value="{{dataValues.id}}" class="col-md-2 offset-md-1 btn btn-outline-danger heatUp">Heat Up</button>
-    <button value="{{dataValues.id}}" class="col-md-2 offset-md-1 btn btn-outline-primary coolDown">Cool Down</button>
-    <h5 class="col-md-2 offset-md-2 username">{{dataValues.user.dataValues.username}}</h5>
+    <h5 class="col-md-2 rating">Hot Rate: {{rating}}</h5>
+    <button value="{{id}}" class="col-md-2 offset-md-1 btn btn-outline-danger heatUp">Heat Up</button>
+    <button value="{{id}}" class="col-md-2 offset-md-1 btn btn-outline-primary coolDown">Cool Down</button>
+    <h5 class="col-md-2 offset-md-2 username">{{user.username}}</h5>
   </div>
   <div class="card-body">
-    <p class="card-text">{{dataValues.take}}</p>
+    <p class="card-text">{{take}}</p>
     
   </div>
 </div>

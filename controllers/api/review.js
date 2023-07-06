@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Review, Movie, User } = require('../../models/');
-const ReviewVote = require('../../models/ReviewVote');
+const { Review, Movie, User, ReviewVote } = require('../../models/');
+// const ReviewVote = require('../../models/ReviewVote');
 const withAuth = require('../../utils/auth');
 
 //  /api/review
@@ -45,6 +45,12 @@ router.post('/', withAuth, async (req, res) => {
 
 router.post('/vote', withAuth, async (req, res) => {
     try {
+        const currentUser = await User.findOne({
+            where: {
+                id: req.session.userId,
+            }
+        })
+
         const currentReview = await Review.findOne({
             where: {
                 id: req.body.reviewId,
@@ -58,6 +64,10 @@ router.post('/vote', withAuth, async (req, res) => {
                 }
             ]
         })
+        // const newVote = await ReviewVote.create({
+        //     upVote: req.body.vote
+        // })
+        // await currentUser.add
         await ReviewVote.create({
             user_id: req.session.userId,
             review_id: req.body.reviewId,
@@ -71,25 +81,25 @@ router.post('/vote', withAuth, async (req, res) => {
     }
 })
 
-// router.get('/vote', withAuth, async (req, res) => {
-//     try {
-//         const reviewVotes = await ReviewVote.findAll({
-//             where: {
-//                 review_id: req.body.reviewId,
-//             },
-//             attributes: {
-//                 include: [
-//                     [sequelize.fn('COUNT', sequelize.col('up_vote')), 'heat_up']
-//                 ]
-//             }
-//         })
-//         console.log('---------------------------');
-//         console.log(reviewVotes);
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).json(error)
-//     }
-// })
+router.get('/vote', withAuth, async (req, res) => {
+    try {
+        const reviewVotes = await ReviewVote.findAll({
+            where: {
+                review_id: req.body.reviewId,
+            },
+            attributes: {
+                include: [
+                    [sequelize.fn('COUNT', sequelize.col('up_vote')), 'heat_up']
+                ]
+            }
+        })
+        console.log('---------------------------');
+        console.log(reviewVotes);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error)
+    }
+})
 
 
 

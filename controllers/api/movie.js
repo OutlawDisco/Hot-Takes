@@ -36,9 +36,28 @@ router.get("/", async (req, res) => {
                 model: User,
                 attributes: ['username'],
               },
+              {
+                model: User,
+                as: 'reviewCount',
+                attributes: ['id'],
+              },
             ],
         })
-        // console.log(dbreviews);
+        dbreviews = dbreviews.map(obj => {
+          const newObj = obj.get({ plain: true });
+          newObj.reviewCount = newObj.reviewCount.map(voteObj => {
+            return voteObj.ReviewVote;
+          })
+          newObj.upVote = newObj.reviewCount.filter(voteObj => voteObj.upVote === true).length
+          newObj.downVote = newObj.reviewCount.filter(voteObj => voteObj.upVote === false).length
+          // follow line 61 for checking if they voted on a review
+          delete newObj.reviewCount;
+          return newObj;
+        })
+        // for sorting by best 
+        // dbreviews.sort
+        
+        console.log(dbreviews);
         const userReview = dbreviews.find(obj => obj.user_id == req.session.userId); 
         noReview = userReview ? false : true;
       };

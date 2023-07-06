@@ -24,14 +24,16 @@ Review.belongsTo(User, {
 Review.belongsToMany(User, {
   foreignKey: "review_id", 
   through: ReviewVote,
+  as: 'reviewCount',
 });
 
 User.belongsToMany(Review, {
   foreignKey: "user_id",
   through: ReviewVote,
+  as: 'userVote',
 });
 
 
 
 
-module.exports = { User, Movie, Review };
+module.exports = { User, Movie, Review, ReviewVote};
