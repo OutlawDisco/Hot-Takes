@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const axios = require("axios");
 const { Movie, Review, User } = require('../../models/')
+const ReviewVote = require('../../models/ReviewVote');
 
 // /api/movie
 router.get("/", async (req, res) => {
@@ -34,16 +35,18 @@ router.get("/", async (req, res) => {
               {
                 model: User,
                 attributes: ['username'],
-              }
-            ]
+              },
+            ],
         })
+        // console.log(dbreviews);
         const userReview = dbreviews.find(obj => obj.user_id == req.session.userId); 
         noReview = userReview ? false : true;
       };
       
-      // console.log(noReview);
+      // console.log(dbreviews);
     // console.log("if movie exists", dbreviews[0].user)
     res.locals.prevReviews = dbreviews;
+    // console.log(res.locals.prevReviews);
     // const reviews = dbreviews.get({ plain: true});
 
     const data = {

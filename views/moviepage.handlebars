@@ -1,12 +1,14 @@
 <div class="row">
   <div class="col-md-3 ms-3">
-    <h1>{{title}}</h1>
+    <h1 id="title">{{title}}</h1>
     <img src="{{poster}}" alt="{{title}}" />
   </div>
   <div class="col-md-5 align-self-center">
     <ul class="movie-info">
-      <li>Plot: {{plot}}</li>
-      <li>Released: {{year}}</li>
+      <span class="movie-info">
+        <li>Plot: {{plot}}</li>
+        <li>Released: {{year}}</li>
+      </span>
     </ul>
     <ul class="row justify-content-start movie-ratings">
       <li class="col">IMDB: {{Internet.Value}}</li>
