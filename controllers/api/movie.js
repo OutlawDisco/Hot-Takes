@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const axios = require("axios");
 const { Movie, Review, User } = require('../../models/')
-const ReviewVote = require('../../models/ReviewVote');
+// const ReviewVote = require('../../models/ReviewVote');
+const { fn, col } = require("sequelize");
 
 // /api/movie
 router.get("/", async (req, res) => {
@@ -22,10 +23,11 @@ router.get("/", async (req, res) => {
     let movieExists = await Movie.findOne({
         where: {
             imdbID: response.data.imdbID,
-        }
+        },
     })
     let dbreviews;
     let noReview = true;
+    let hotTakesSum = 0;
     if (movieExists) {
         dbreviews = await Review.findAll({
             where: {
@@ -43,8 +45,13 @@ router.get("/", async (req, res) => {
               },
             ],
         })
+
+
+
+
         dbreviews = dbreviews.map(obj => {
           const newObj = obj.get({ plain: true });
+          hotTakesSum += newObj.rating;
           newObj.reviewCount = newObj.reviewCount.map(voteObj => {
             return voteObj.ReviewVote;
           })
@@ -74,6 +81,7 @@ router.get("/", async (req, res) => {
       plot: response.data.Plot,
       year: response.data.Year,
       imdbID: response.data.imdbID,
+      hotTakesAvg: hotTakesSum/dbreviews.length,
       noReview
     };
     for (const rating of response.data.Ratings) {
