@@ -2,7 +2,7 @@
   <div class="row card-header">
     <h5 class="col-md-2 rating">Hot Rate: {{dataValues.rating}}</h5>
     <button value="{{dataValues.id}}" class="col-md-2 offset-md-1 btn btn-outline-danger heatUp">Heat Up</button>
-    <button value="{{dataValues.id}}" class="col-md-2 offset-md-1 btn btn-outline-primary coolDown">Cool Down</button>
+    <button id="coolDownBtn" value="{{dataValues.id}}" class="col-md-2 offset-md-1 btn btn-outline-primary coolDown">Cool Down</button>
     <h5 class="col-md-2 offset-md-2 username">{{dataValues.user.dataValues.username}}</h5>
   </div>
   <div class="card-body">
