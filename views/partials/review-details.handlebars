@@ -1,9 +1,14 @@
 <div class="col-md-8 mb-4 card review-card">
-  <div class="row card-header">
+  <div class="row card-header justify-content-between">
     <h5 class="col-md-2 rating">Hot Rate: {{rating}}</h5>
-    <button value="{{id}}" class="col-md-2 offset-md-1 btn btn-outline-danger heatUp">Heat Up</button>
-    <button value="{{id}}" class="col-md-2 offset-md-1 btn btn-outline-primary coolDown">Cool Down</button>
-    <h5 class="col-md-2 offset-md-2 username">{{user.username}}</h5>
+    <div>
+    <p><i class="fa-regular fa-fire-flame-curved fa-fade" style="color: #e09f3e;"></i></p>
+    <p class="col-md-1 mx-0 px-0 vote-count">{{upVote}}</p>
+    </div>
+    <button value="{{id}}" class="col-md-2 btn btn-outline-danger heatUp">Heat Up</button>
+    <button value="{{id}}" class="col-md-2 btn btn-outline-primary coolDown">Cool Down</button>
+    <p class="col-md-1 vote-count">{{downVote}}</p>
+    <h5 class="col-md-2 username">{{user.username}}</h5>
   </div>
   <div class="card-body">
     <p class="card-text">{{take}}</p>

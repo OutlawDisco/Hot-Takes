@@ -18,19 +18,7 @@
     {{#if loggedIn}}
     {{#if noReview}}
       <form class="" name="review" action="/api/review" method="post">
-        {{!-- <label for="rating" class="search-label" for="review">Hot Rate</label>
-        <b-input-group>
-          <b-input-group-prepend>
-            <b-button @click="value = null">Clear</b-button>
-          </b-input-group-prepend>
-          <b-form-rating v-model="value" name="rating" color="#ff8800"></b-form-rating>
-          <b-input-group-append>
-            <b-input-group-text class="justify-content-center" style="min-width: 3em;">
-              {{ value }}
-            </b-input-group-text>
-          </b-input-group-append>
-        </b-input-group> --}}
-       
+        
         <label for="customRange3" class="search-label" for="review">Hot Rate</label>
         <input
           type="range"
@@ -69,12 +57,3 @@
     {{/each}}
   </section>
 </div>
-{{!-- <script>
-  export default {
-    data() {
-      return {
-        value10: null,
-      }
-    }
-  }
-</script> --}}
