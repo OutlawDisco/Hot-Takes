@@ -130,6 +130,10 @@ ul {
     
 }
 
+#button-addon2:hover {
+  transform: none;
+}
+
 #coolDownBtn:hover {
   background-color: blue;
 }
