@@ -142,6 +142,8 @@ ul {
   color: #fff;
 }
 
+
+
 .btn:link,
 .btn:visited {
     text-transform: uppercase;
@@ -152,6 +154,10 @@ ul {
     transition: all .2s;
     position: absolute;
     
+}
+
+#coolDownBtn:hover {
+  background-color: blue;
 }
 
 .btn:hover {
