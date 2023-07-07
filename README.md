@@ -12,6 +12,7 @@
   - [Questions](#Questions)
   - [Wireframes](#wireframes-of-application)
   - [Screenshot](#screenshot-of-application)
+  - [Presentation](#Presentation-slides)
 
   ## Description
   An interactive movie-review site for the hot takes of real movie goers, not critics!
@@ -53,3 +54,11 @@
   ### link to deployed application: https://hot-takes-reviews-b29812e3e846.herokuapp.com/
 
   ### GitHub repository: https://github.com/OutlawDisco/Hot-Takes
+
+  ## Presentation slides
+  ![slide1](./public/images/Hot-Takes-slide1.jpg)
+  ![slide2](./public/images/Hot-Takes-slide2.jpg)
+  ![slide3](./public/images/Hot-Takes-slide3.jpg)
+  ![slide4](./public/images/Hot-Takes-slide4.jpg)
+  ![slide5](./public/images/Hot-Takes-slide5.jpg)
+  ![slide6](./public/images/Hot-Takes-slide6.jpg)
