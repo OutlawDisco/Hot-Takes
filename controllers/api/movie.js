@@ -104,7 +104,8 @@ router.get("/", async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json(error);
+    // res.status(500).json(error);
+    res.redirect('/')
   }
 });
 
