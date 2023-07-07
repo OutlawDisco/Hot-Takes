@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-3 ms-3">
     <h1 id="title">{{title}}</h1>
@@ -20,7 +21,7 @@
     {{#if noReview}}
       <form class="" name="review" action="/api/review" method="post">
         <label for="rating" class="control-label">Heat Rating</label>
-        <input id="rating" name="rating" class="rating rating-loading" data-show-clear="false" data-show-caption="true">
+        <input id="rating" name="rating" class="rating rating-loading" data-show-clear="false" data-show-caption="true" data-min="0" data-max="10" data-step="1">
         {{!-- <label for="customRange3" class="search-label" for="review">Hot Rate</label>
         <input
           type="range"
@@ -59,3 +60,4 @@
     {{/each}}
   </section>
 </div>
+
