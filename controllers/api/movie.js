@@ -51,7 +51,7 @@ router.get("/", async (req, res) => {
 
         dbreviews = dbreviews.map(obj => {
           const newObj = obj.get({ plain: true });
-          // hotTakesSum += newObj.rating;
+          hotTakesSum += newObj.rating;
           newObj.reviewCount = newObj.reviewCount.map(voteObj => {
             return voteObj.ReviewVote;
           })
@@ -81,7 +81,7 @@ router.get("/", async (req, res) => {
       plot: response.data.Plot,
       year: response.data.Year,
       imdbID: response.data.imdbID,
-      // hotTakesAvg: hotTakesSum/dbreviews.length,
+      hotTakesAvg: hotTakesSum/dbreviews.length,
       noReview
     };
     for (const rating of response.data.Ratings) {
