@@ -1,7 +1,7 @@
 <div class="col-md-8 mb-4 card review-card">
   <div class="row card-header justify-content-between">
     <h5 class="col-md-2 rating">Hot Rate: {{rating}}</h5>
-    <p class="col-md-1 mx-0 px-0 vote-count">{{upVote}}</p>
+    <p class="col-md-1 mx-0 px-0 vote-count fire">{{upVote}}</p>
     {{!-- <button value="{{id}}" class=" col-md-2 btn heatUp"><i class="fa-sharp fa-light fa-fire-flame fa-beat fa-2xs" style="color: #e09f3e;"></i></button> --}}
     <button value="{{id}}" class="col-md-2 btn btn-outline-danger heatUp">Heat
       Up
@@ -12,7 +12,7 @@
       value="{{id}}"
       class="col-md-2 btn btn-outline-primary coolDown"
     >Cool Down <i class="fa-solid fa-icicles"></i></button>
-    <p class="col-md-1 vote-count">{{downVote}}</p>
+    <p class="col-md-1 vote-count ice">{{downVote}}</p>
     <h5 class="col-md-2 username">{{user.username}}</h5>
   </div>
   <div class="card-body">

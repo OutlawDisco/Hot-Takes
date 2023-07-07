@@ -32,6 +32,10 @@ body {
   font: var(--light);
 }
 
+.description {
+  color: var(--lightest);
+}
+
 ul {
   list-style-type: none;
 }
@@ -69,6 +73,14 @@ ul {
 
 .vote-count {
   text-align: center;
+}
+
+.fire {
+  color: var(--light);
+}
+
+.ice {
+  color: var(--accent);
 }
 
 .card-text {
