@@ -24,12 +24,12 @@ router.get("/", async (req, res) => {
         imdbID: response.data.imdbID,
       },
     });
-    let dbreviews;
+    let dbReviews;
     let noReview = true;
     let hotTakesSum = 0;
     let reviewLength = 0;
     if (movieExists) {
-      dbreviews = await Review.findAll({
+      dbReviews = await Review.findAll({
         where: {
           movie_id: movieExists.id,
         },
@@ -45,8 +45,8 @@ router.get("/", async (req, res) => {
           },
         ],
       });
-      reviewLength = dbreviews.length ? dbreviews.length : 0; //turnary statment
-      dbreviews = dbreviews.map((obj) => {
+      reviewLength = dbReviews.length ? dbReviews.length : 0; //turnary statment
+      dbReviews = dbReviews.map((obj) => {
         const newObj = obj.get({ plain: true });
         hotTakesSum += newObj.rating;
         newObj.reviewCount = newObj.reviewCount.map((voteObj) => {
@@ -62,13 +62,15 @@ router.get("/", async (req, res) => {
         delete newObj.reviewCount;
         return newObj;
       });
+      console.log(hotTakesSum);
+      console.log(dbReviews.length);
+      
       // for sorting by best
       // dbreviews.sort
-      console.log(hotTakesSum);
-      console.log(dbreviews.length);
+      dbReviews.sort((a, b) => (a.upVote < b.upVote) ? 1 : ((b.upVote < a.upVote) ? -1 : 0));
 
-      console.log(dbreviews);
-      const userReview = dbreviews.find(
+      // console.log(dbReviews);
+      const userReview = dbReviews.find(
         (obj) => obj.user_id == req.session.userId
       );
       noReview = userReview ? false : true;
@@ -76,10 +78,11 @@ router.get("/", async (req, res) => {
 
     // console.log(dbreviews);
     // console.log("if movie exists", dbreviews[0].user)
-    res.locals.prevReviews = dbreviews;
+    res.locals.prevReviews = dbReviews;
     // console.log(res.locals.prevReviews);
     // const reviews = dbreviews.get({ plain: true});
-    const average = hotTakesSum / reviewLength;
+    const average = (hotTakesSum / reviewLength).toFixed(1);
+    // alert(average.toFixed(1));
     console.log(average);
     const data = {
       poster: response.data.Poster,
