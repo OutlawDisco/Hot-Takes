@@ -42,9 +42,13 @@ ul {
 
 /* Movie Page Styling */
 #title {
-  color: var(--lightest);
+  color: var(--light);
   font-size: 40px;
   font-weight: bolder;
+}
+
+.hot-rating {
+  color: var(--lightest);
 }
 .form-control {
   background-color: var(--lightest);
@@ -77,10 +81,13 @@ ul {
 
 .fire {
   color: var(--light);
+  font-weight: bold;
 }
 
 .ice {
-  color: var(--accent);
+  color: blue;
+  font-weight: bold;
+
 }
 
 .card-text {
